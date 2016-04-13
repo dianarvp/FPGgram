@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Wed Apr 13 06:18:52 2016
+Quartus Prime Version : 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition
+Revision Name : MyDDR3Controller_example
+Top-level Entity Name : MyDDR3Controller_example
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 4684
+Total pins : 59
+Total virtual pins : 0
+Total block memory bits : 135,480
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 1

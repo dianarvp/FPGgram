@@ -1,0 +1,129 @@
+Flow report for MyDDR3Controller_example
+Wed Apr 13 06:18:53 2016
+Quartus Prime Version 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Flow Summary
+  3. Flow Settings
+  4. Flow Non-Default Global Settings
+  5. Flow Elapsed Time
+  6. Flow OS Summary
+  7. Flow Log
+  8. Flow Messages
+  9. Flow Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------------+
+; Flow Summary                                                                               ;
++---------------------------------+----------------------------------------------------------+
+; Flow Status                     ; Successful - Wed Apr 13 06:18:52 2016                    ;
+; Quartus Prime Version           ; 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition ;
+; Revision Name                   ; MyDDR3Controller_example                                 ;
+; Top-level Entity Name           ; MyDDR3Controller_example                                 ;
+; Family                          ; Cyclone V                                                ;
+; Device                          ; 5CGXFC7C7F23C8                                           ;
+; Timing Models                   ; Final                                                    ;
+; Logic utilization (in ALMs)     ; N/A                                                      ;
+; Total registers                 ; 4684                                                     ;
+; Total pins                      ; 59                                                       ;
+; Total virtual pins              ; 0                                                        ;
+; Total block memory bits         ; 135,480                                                  ;
+; Total DSP Blocks                ; 0                                                        ;
+; Total HSSI RX PCSs              ; 0                                                        ;
+; Total HSSI PMA RX Deserializers ; 0                                                        ;
+; Total HSSI TX PCSs              ; 0                                                        ;
+; Total HSSI PMA TX Serializers   ; 0                                                        ;
+; Total PLLs                      ; 1                                                        ;
+; Total DLLs                      ; 1                                                        ;
++---------------------------------+----------------------------------------------------------+
+
+
++----------------------------------------------+
+; Flow Settings                                ;
++-------------------+--------------------------+
+; Option            ; Setting                  ;
++-------------------+--------------------------+
+; Start date & time ; 04/13/2016 06:17:56      ;
+; Main task         ; Compilation              ;
+; Revision Name     ; MyDDR3Controller_example ;
++-------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                         ;
++---------------------------------------+------------------------------------------------------------+---------------+-------------+-----------------------+
+; Assignment Name                       ; Value                                                      ; Default Value ; Entity Name ; Section Id            ;
++---------------------------------------+------------------------------------------------------------+---------------+-------------+-----------------------+
+; COMPILER_SIGNATURE_ID                 ; 0.146054267517623                                          ; --            ; --          ; --                    ;
+; ECO_REGENERATE_REPORT                 ; On                                                         ; Off           ; --          ; --                    ;
+; EDA_DESIGN_INSTANCE_NAME              ; dut                                                        ; --            ; --          ; uniphy_rtl_simulation ;
+; EDA_ENABLE_GLITCH_FILTERING           ; On                                                         ; --            ; --          ; eda_simulation        ;
+; EDA_MAP_ILLEGAL_CHARACTERS            ; On                                                         ; --            ; --          ; eda_simulation        ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH  ; uniphy_rtl_simulation                                      ; --            ; --          ; eda_simulation        ;
+; EDA_OUTPUT_DATA_FORMAT                ; Verilog Hdl                                                ; --            ; --          ; eda_simulation        ;
+; EDA_SIMULATION_TOOL                   ; ModelSim-Altera (Verilog)                                  ; <None>        ; --          ; --                    ;
+; EDA_TEST_BENCH_ENABLE_STATUS          ; TEST_BENCH_MODE                                            ; --            ; --          ; eda_simulation        ;
+; EDA_TEST_BENCH_MODULE_NAME            ; MyDDR3Controller_example_tb                                ; --            ; --          ; uniphy_rtl_simulation ;
+; EDA_TEST_BENCH_NAME                   ; uniphy_rtl_simulation                                      ; --            ; --          ; eda_simulation        ;
+; EDA_TIME_SCALE                        ; 1 ps                                                       ; --            ; --          ; eda_simulation        ;
+; EDA_WRITE_NODES_FOR_POWER_ESTIMATION  ; ALL_NODES                                                  ; --            ; --          ; eda_simulation        ;
+; MISC_FILE                             ; MyDDR3Controller_example/submodules/alt_mem_ddrx_define.iv ; --            ; --          ; --                    ;
+; PARTITION_COLOR                       ; 16764057                                                   ; --            ; --          ; Top                   ;
+; PARTITION_FITTER_PRESERVATION_LEVEL   ; PLACEMENT_AND_ROUTING                                      ; --            ; --          ; Top                   ;
+; PARTITION_NETLIST_TYPE                ; SOURCE                                                     ; --            ; --          ; Top                   ;
+; SYNTHESIS_ONLY_QIP                    ; On                                                         ; --            ; --          ; --                    ;
+; USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ; On                                                         ; Off           ; --          ; --                    ;
++---------------------------------------+------------------------------------------------------------+---------------+-------------+-----------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:57     ; 1.0                     ; 1587 MB             ; 00:01:17                           ;
+; Total                ; 00:00:57     ; --                      ; --                  ; 00:01:17                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+
+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++----------------------+------------------+--------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
++----------------------+------------------+--------------+------------+----------------+
+; Analysis & Synthesis ; diana-laptop     ; Ubuntu 15.10 ; 15         ; x86_64         ;
++----------------------+------------------+--------------+------------+----------------+
+
+
+------------
+; Flow Log ;
+------------
+quartus_map --read_settings_files=on --write_settings_files=off MyDDR3Controller_example -c MyDDR3Controller_example
+
+
+

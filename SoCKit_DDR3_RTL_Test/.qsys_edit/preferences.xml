@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<preferences>
+ <debug showDebugMenu="0" />
+ <systemtable filter="All Interfaces">
+  <columns>
+   <connections preferredWidth="127" />
+   <irq preferredWidth="34" />
+   <name preferredWidth="184" />
+  </columns>
+ </systemtable>
+ <clocktable>
+  <columns>
+   <clockname preferredWidth="441" />
+   <clocksource preferredWidth="441" />
+   <frequency preferredWidth="422" />
+  </columns>
+ </clocktable>
+ <library
+   expandedCategories="Project,Library,Library/Memory Interfaces and Controllers,Library/Memory Interfaces and Controllers/Memory Interfaces with UniPHY,Library/Interface Protocols" />
+ <window width="1301" height="744" x="65" y="24" />
+ <hdlexample language="VERILOG" />
+</preferences>

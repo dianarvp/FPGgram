@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Wed Apr 13 04:50:57 2016
+Quartus Prime Version : 15.1.2 Build 193 02/01/2016 SJ Lite Edition
+Revision Name : SoCKit_DDR3_RTL_Test
+Top-level Entity Name : SoCKit_DDR3_RTL_Test
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 2978
+Total pins : 218
+Total virtual pins : 0
+Total block memory bits : 199,936
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 1
+Total DLLs : 1

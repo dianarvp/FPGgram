@@ -1,0 +1,97 @@
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_d0:d0|driver_avl_use_be_avl_use_burstbegin:traffic_generator_0|avalon_traffic_gen_avl_use_be_avl_use_burstbegin:avalon_traffic_gen_inst|state
+Name state.WRITE_BURST 
+state.IDLE 0 
+state.WRITE_BURST 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_d0:d0|driver_avl_use_be_avl_use_burstbegin:traffic_generator_0|driver_fsm_avl_use_be_avl_use_burstbegin:real_driver.driver_fsm_inst|stage
+Name stage.TIMEOUT stage.TEST_COMPLETE stage.DONE stage.TEMPLATE_STAGE stage.BLOCK_RW stage.SINGLE_RW stage.INIT 
+stage.INIT 0 0 0 0 0 0 0 
+stage.SINGLE_RW 0 0 0 0 0 1 1 
+stage.BLOCK_RW 0 0 0 0 1 0 1 
+stage.TEMPLATE_STAGE 0 0 0 1 0 0 1 
+stage.DONE 0 0 1 0 0 0 1 
+stage.TEST_COMPLETE 0 1 0 0 0 0 1 
+stage.TIMEOUT 1 0 0 0 0 0 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_d0:d0|driver_avl_use_be_avl_use_burstbegin:traffic_generator_0|driver_fsm_avl_use_be_avl_use_burstbegin:real_driver.driver_fsm_inst|template_stage:template_stage_inst|state
+Name state.DONE state.WAIT state.READ2 state.READ1 state.WRITE2 state.WRITE1 state.INIT 
+state.INIT 0 0 0 0 0 0 0 
+state.WRITE1 0 0 0 0 0 1 1 
+state.WRITE2 0 0 0 0 1 0 1 
+state.READ1 0 0 0 1 0 0 1 
+state.READ2 0 0 1 0 0 0 1 
+state.WAIT 0 1 0 0 0 0 1 
+state.DONE 1 0 0 0 0 0 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_d0:d0|driver_avl_use_be_avl_use_burstbegin:traffic_generator_0|driver_fsm_avl_use_be_avl_use_burstbegin:real_driver.driver_fsm_inst|block_rw_stage_avl_use_be_avl_use_burstbegin:block_rw_stage_inst|state
+Name state.WAIT state.BLOCK_READ state.BLOCK_WRITE state.INIT state.DONE 
+state.INIT 0 0 0 0 0 
+state.BLOCK_WRITE 0 0 1 1 0 
+state.BLOCK_READ 0 1 0 1 0 
+state.WAIT 1 0 0 1 0 
+state.DONE 0 0 0 1 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_d0:d0|driver_avl_use_be_avl_use_burstbegin:traffic_generator_0|driver_fsm_avl_use_be_avl_use_burstbegin:real_driver.driver_fsm_inst|single_rw_stage_avl_use_be_avl_use_burstbegin:single_rw_stage_inst|state
+Name state.WAIT state.SINGLE_READ state.SINGLE_WRITE state.INIT state.DONE 
+state.INIT 0 0 0 0 0 
+state.SINGLE_WRITE 0 0 1 1 0 
+state.SINGLE_READ 0 1 0 1 0 
+state.WAIT 1 0 0 1 0 
+state.DONE 0 0 0 1 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_c0:c0|alt_mem_if_nextgen_ddr3_controller_core:ng0|alt_mem_ddrx_controller_st_top:alt_mem_ddrx_controller_top_inst|alt_mem_ddrx_controller:controller_inst|alt_mem_ddrx_cmd_gen:cmd_gen_inst|ecc_state_sm
+Name ecc_state_sm.FULL_RD ecc_state_sm.0100 ecc_state_sm.FULL_WR ecc_state_sm.PARWR_WR ecc_state_sm.0001 ecc_state_sm.IDLE ecc_state_sm.CORRECT_WR 
+ecc_state_sm.IDLE 0 0 0 0 0 0 0 
+ecc_state_sm.0001 0 0 0 0 1 1 0 
+ecc_state_sm.PARWR_WR 0 0 0 1 0 1 0 
+ecc_state_sm.FULL_WR 0 0 1 0 0 1 0 
+ecc_state_sm.0100 0 1 0 0 0 1 0 
+ecc_state_sm.FULL_RD 1 0 0 0 0 1 0 
+ecc_state_sm.CORRECT_WR 0 0 0 0 0 1 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|rw_manager_ddr3:sequencer_rw_mgr_inst|rw_manager_generic:rw_mgr_inst|state
+Name state.STATE_RW_REFRESH state.STATE_RW_DONE state.STATE_RW_EXEC state.STATE_RW_IDLE state.STATE_RW_RESTORE 
+state.STATE_RW_IDLE 0 0 0 0 0 
+state.STATE_RW_EXEC 0 0 1 1 0 
+state.STATE_RW_DONE 0 1 0 1 0 
+state.STATE_RW_REFRESH 1 0 0 1 0 
+state.STATE_RW_RESTORE 0 0 0 1 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|rw_manager_ddr3:sequencer_rw_mgr_inst|rw_manager_generic:rw_mgr_inst|rw_manager_core:rw_mgr_core_inst|state
+Name state.RW_MGR_STATE_DONE state.RW_MGR_STATE_READING state.RW_MGR_STATE_RUNNING state.RW_MGR_STATE_IDLE 
+state.RW_MGR_STATE_IDLE 0 0 0 0 
+state.RW_MGR_STATE_RUNNING 0 0 1 1 
+state.RW_MGR_STATE_READING 0 1 0 1 
+state.RW_MGR_STATE_DONE 1 0 0 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|sequencer_data_mgr:sequencer_data_mgr_inst|state_avl_curr
+Name state_avl_curr.STATE_AVL_DONE 
+state_avl_curr.STATE_AVL_IDLE 0 
+state_avl_curr.STATE_AVL_DONE 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|sequencer_phy_mgr:sequencer_phy_mgr_inst|state_phy_curr
+Name state_phy_curr.STATE_PHY_DONE 
+state_phy_curr.STATE_PHY_IDLE 0 
+state_phy_curr.STATE_PHY_DONE 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|sequencer_phy_mgr:sequencer_phy_mgr_inst|state_avl_curr
+Name state_avl_curr.STATE_AVL_IDLE state_avl_curr.STATE_AVL_DONE state_avl_curr.STATE_AVL_EXEC 
+state_avl_curr.STATE_AVL_IDLE 0 0 0 
+state_avl_curr.STATE_AVL_EXEC 1 0 1 
+state_avl_curr.STATE_AVL_DONE 1 1 0 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|sequencer_reg_file:sequencer_reg_file_inst|state
+Name state.READ4 state.READ3 state.READ2 state.WRITE2 state.IDLE state.INIT 
+state.INIT 0 0 0 0 0 0 
+state.IDLE 0 0 0 0 1 1 
+state.WRITE2 0 0 0 1 0 1 
+state.READ2 0 0 1 0 0 1 
+state.READ3 0 1 0 0 0 1 
+state.READ4 1 0 0 0 0 1 
+
+State Machine - |MyDDR3Controller_example|MyDDR3Controller_example_if0:if0|MyDDR3Controller_example_if0_s0:s0|sequencer_scc_mgr:sequencer_scc_mgr_inst|scc_state_curr
+Name scc_state_curr.STATE_SCC_IDLE scc_state_curr.STATE_SCC_DONE scc_state_curr.STATE_SCC_LOAD 
+scc_state_curr.STATE_SCC_IDLE 0 0 0 
+scc_state_curr.STATE_SCC_LOAD 1 0 1 
+scc_state_curr.STATE_SCC_DONE 1 1 0 

@@ -1,0 +1,20 @@
+Fitter Status : Successful - Wed Apr 13 04:54:24 2016
+Quartus Prime Version : 15.1.2 Build 193 02/01/2016 SJ Lite Edition
+Revision Name : SoCKit_DDR3_RTL_Test
+Top-level Entity Name : SoCKit_DDR3_RTL_Test
+Family : Cyclone V
+Device : 5CSXFC6D6F31C8ES
+Timing Models : Preliminary
+Logic utilization (in ALMs) : 1,720 / 41,910 ( 4 % )
+Total registers : 3074
+Total pins : 218 / 499 ( 44 % )
+Total virtual pins : 0
+Total block memory bits : 199,936 / 5,662,720 ( 4 % )
+Total RAM Blocks : 37 / 553 ( 7 % )
+Total DSP Blocks : 0 / 112 ( 0 % )
+Total HSSI RX PCSs : 0 / 9 ( 0 % )
+Total HSSI PMA RX Deserializers : 0 / 9 ( 0 % )
+Total HSSI TX PCSs : 0 / 9 ( 0 % )
+Total HSSI PMA TX Serializers : 0 / 9 ( 0 % )
+Total PLLs : 1 / 15 ( 7 % )
+Total DLLs : 1 / 4 ( 25 % )

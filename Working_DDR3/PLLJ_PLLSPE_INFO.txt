@@ -1,0 +1,40 @@
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll1_phy~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll1~FRACTIONAL_PLL
+PLLJITTER	22
+PLLSPEmax	50
+PLLSPEmin	-50
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll1~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll2_phy~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll3~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll4~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll6~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+
+PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll7~PLL_OUTPUT_COUNTER
+PLLJITTER	NA
+PLLSPEmax	NA
+PLLSPEmin	NA
+

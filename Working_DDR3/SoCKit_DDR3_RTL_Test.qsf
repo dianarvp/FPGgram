@@ -7,7 +7,7 @@ set_global_assignment -name DEVICE 5CSXFC6D6F31C8ES
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name TOP_LEVEL_ENTITY SoCKit_DDR3_RTL_Test
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12
-set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name LAST_QUARTUS_VERSION "15.1.2 SP2.19"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "WED FEB  6 14:33:30 2013"
 
 
@@ -495,22 +495,8 @@ set_global_assignment -name UNIPHY_SEQUENCER_DQS_CONFIG_ENABLE ON
 set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
 set_global_assignment -name ECO_REGENERATE_REPORT ON
 set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
-set_global_assignment -name SDC_FILE SoCKit_DDR3_RTL_Test.sdc
-set_global_assignment -name SIP_FILE FPGA_DDR3/fpga_ddr3/fpga_ddr3.sip
 
 
-set_global_assignment -name QIP_FILE FPGA_DDR3/fpga_ddr3/fpga_ddr3.qip
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/avg_pool.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/backprop_content_loss.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/backprop_pool.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/backprop_relu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/content_loss.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/conv.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/convolution.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/relu.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/reverse_mask.sv
-set_global_assignment -name SYSTEMVERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/FPGA_DDR3/Avalon_bus_RW_Test.sv
-set_global_assignment -name VERILOG_FILE /home/user4/spring16/drv2110/Working_DDR3/SoCKit_DDR3_RTL_Test.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -1130,4 +1116,21 @@ set_instance_assignment -name GLOBAL_SIGNAL OFF -to fpga_ddr3_inst|fpga_ddr3_ins
 set_instance_assignment -name GLOBAL_SIGNAL OFF -to fpga_ddr3_inst|fpga_ddr3_inst|p0|umemphy|uread_datapath|reset_n_fifo_wraddress[3] -tag __fpga_ddr3_p0
 set_instance_assignment -name ENABLE_BENEFICIAL_SKEW_OPTIMIZATION_FOR_NON_GLOBAL_CLOCKS ON -to fpga_ddr3_inst|fpga_ddr3_inst -tag __fpga_ddr3_p0
 set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to fpga_ddr3_inst|fpga_ddr3_inst|pll0|fbout -tag __fpga_ddr3_p0
+set_global_assignment -name SYSTEMVERILOG_FILE FPGA_DDR3/Avalon_bus_RW_Test.sv
+set_global_assignment -name VERILOG_FILE SoCKit_DDR3_RTL_Test.v
+set_global_assignment -name SYSTEMVERILOG_FILE reverse_mask.sv
+set_global_assignment -name SYSTEMVERILOG_FILE relu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE convolution.sv
+set_global_assignment -name SYSTEMVERILOG_FILE conv.sv
+set_global_assignment -name SYSTEMVERILOG_FILE content_loss.sv
+set_global_assignment -name SYSTEMVERILOG_FILE backprop_relu.sv
+set_global_assignment -name SYSTEMVERILOG_FILE backprop_pool.sv
+set_global_assignment -name SYSTEMVERILOG_FILE backprop_content_loss.sv
+set_global_assignment -name SYSTEMVERILOG_FILE avg_pool.sv
+set_global_assignment -name SDC_FILE SoCKit_DDR3_RTL_Test.sdc
+set_global_assignment -name SIP_FILE FPGA_DDR3/fpga_ddr3/fpga_ddr3.sip
+set_global_assignment -name QIP_FILE FPGA_DDR3/fpga_ddr3/fpga_ddr3.qip
+set_global_assignment -name SYSTEMVERILOG_FILE load_data.sv
+set_global_assignment -name SYSTEMVERILOG_FILE store_data.sv
+set_global_assignment -name SYSTEMVERILOG_FILE write_data.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

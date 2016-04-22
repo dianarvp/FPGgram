@@ -4,9 +4,9 @@ PLLSPEmax	NA
 PLLSPEmin	NA
 
 PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll1~FRACTIONAL_PLL
-PLLJITTER	22
-PLLSPEmax	50
-PLLSPEmin	-50
+PLLJITTER	27
+PLLSPEmax	100
+PLLSPEmin	-100
 
 PLL_Name	fpga_ddr3:fpga_ddr3_inst|fpga_ddr3_0002:fpga_ddr3_inst|fpga_ddr3_pll0:pll0|pll1~PLL_OUTPUT_COUNTER
 PLLJITTER	NA

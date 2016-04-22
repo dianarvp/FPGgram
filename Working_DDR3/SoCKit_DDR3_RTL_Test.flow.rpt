@@ -1,6 +1,6 @@
 Flow report for SoCKit_DDR3_RTL_Test
-Thu Apr 14 02:26:39 2016
-Quartus II 32-bit Version 13.1.1 Build 166 11/26/2013 SJ Full Version
+Fri Apr 15 06:08:11 2016
+Quartus Prime Version 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition
 
 
 ---------------------
@@ -21,45 +21,41 @@ Quartus II 32-bit Version 13.1.1 Build 166 11/26/2013 SJ Full Version
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 1991-2013 Altera Corporation
+Copyright (C) 1991-2016 Altera Corporation. All rights reserved.
 Your use of Altera Corporation's design tools, logic functions 
 and other software and tools, and its AMPP partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Altera Program License 
-Subscription Agreement, Altera MegaCore Function License 
-Agreement, or other applicable license agreement, including, 
-without limitation, that your use is for the sole purpose of 
-programming logic devices manufactured by Altera and sold by 
-Altera or its authorized distributors.  Please refer to the 
-applicable agreement for further details.
+Subscription Agreement, the Altera Quartus Prime License Agreement,
+the Altera MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Altera and sold by Altera or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Flow Summary                                                                  ;
-+---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Thu Apr 14 02:24:36 2016       ;
-; Quartus II 32-bit Version       ; 13.1.1 Build 166 11/26/2013 SJ Full Version ;
-; Revision Name                   ; SoCKit_DDR3_RTL_Test                        ;
-; Top-level Entity Name           ; SoCKit_DDR3_RTL_Test                        ;
-; Family                          ; Cyclone V                                   ;
-; Device                          ; 5CSXFC6D6F31C8ES                            ;
-; Timing Models                   ; Preliminary                                 ;
-; Logic utilization (in ALMs)     ; 3,304 / 41,910 ( 8 % )                      ;
-; Total registers                 ; 4794                                        ;
-; Total pins                      ; 238 / 499 ( 48 % )                          ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 215,968 / 5,662,720 ( 4 % )                 ;
-; Total DSP Blocks                ; 0 / 112 ( 0 % )                             ;
-; Total HSSI RX PCSs              ; 0 / 9 ( 0 % )                               ;
-; Total HSSI PMA RX Deserializers ; 0 / 9 ( 0 % )                               ;
-; Total HSSI TX PCSs              ; 0 / 9 ( 0 % )                               ;
-; Total HSSI TX Channels          ; 0 / 9 ( 0 % )                               ;
-; Total PLLs                      ; 1 / 15 ( 7 % )                              ;
-; Total DLLs                      ; 1 / 4 ( 25 % )                              ;
-+---------------------------------+---------------------------------------------+
++----------------------------------------------------------------------------------------+
+; Flow Summary                                                                           ;
++-----------------------------+----------------------------------------------------------+
+; Flow Status                 ; Flow Failed - Fri Apr 15 06:08:11 2016                   ;
+; Quartus Prime Version       ; 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition ;
+; Revision Name               ; SoCKit_DDR3_RTL_Test                                     ;
+; Top-level Entity Name       ; SoCKit_DDR3_RTL_Test                                     ;
+; Family                      ; Cyclone V                                                ;
+; Device                      ; 5CSXFC6D6F31C8ES                                         ;
+; Timing Models               ; Preliminary                                              ;
+; Logic utilization (in ALMs) ; N/A until Partition Merge                                ;
+; Total registers             ; N/A until Partition Merge                                ;
+; Total pins                  ; N/A until Partition Merge                                ;
+; Total virtual pins          ; N/A until Partition Merge                                ;
+; Total block memory bits     ; N/A until Partition Merge                                ;
+; Total PLLs                  ; N/A until Partition Merge                                ;
+; Total DLLs                  ; N/A until Partition Merge                                ;
++-----------------------------+----------------------------------------------------------+
 
 
 +------------------------------------------+
@@ -67,291 +63,210 @@ applicable agreement for further details.
 +-------------------+----------------------+
 ; Option            ; Setting              ;
 +-------------------+----------------------+
-; Start date & time ; 04/14/2016 02:15:44  ;
+; Start date & time ; 04/15/2016 06:07:51  ;
 ; Main task         ; Compilation          ;
 ; Revision Name     ; SoCKit_DDR3_RTL_Test ;
 +-------------------+----------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                                                                                  ;
-+-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-----------------------------------------+------------+
-; Assignment Name                     ; Value                                                                                                ; Default Value ; Entity Name                             ; Section Id ;
-+-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-----------------------------------------+------------+
-; COMPILER_SIGNATURE_ID               ; 229144657205375.146061454426081                                                                      ; --            ; --                                      ; --         ;
-; ECO_REGENERATE_REPORT               ; On                                                                                                   ; Off           ; --                                      ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; afi_mux_ddr3_ddrx                       ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; alt_mem_ddrx_mm_st_converter            ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; alt_mem_if_nextgen_ddr3_controller_core ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_avalon_packets_to_master         ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_avalon_sc_fifo                   ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_avalon_st_bytes_to_packets       ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_avalon_st_jtag_interface         ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_avalon_st_packets_to_bytes       ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_mem_if_dll_cyclonev              ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_mem_if_oct_cyclonev              ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_merlin_master_translator         ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_merlin_slave_translator          ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; altera_reset_controller                 ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_0002                          ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_c0                            ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_dmaster                       ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_dmaster_b2p_adapter           ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_dmaster_p2b_adapter           ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_dmaster_timing_adt            ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_p0                            ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_pll0                          ; --         ;
-; IP_TOOL_ENV                         ; mwpim                                                                                                ; --            ; fpga_ddr3_s0                            ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_afi_mux                                                                           ; --            ; afi_mux_ddr3_ddrx                       ; --         ;
-; IP_TOOL_NAME                        ; alt_mem_ddrx_mm_st_converter                                                                         ; --            ; alt_mem_ddrx_mm_st_converter            ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_nextgen_ddr3_controller_core                                                           ; --            ; alt_mem_if_nextgen_ddr3_controller_core ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_packets_to_master                                                                      ; --            ; altera_avalon_packets_to_master         ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_sc_fifo                                                                                ; --            ; altera_avalon_sc_fifo                   ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_st_bytes_to_packets                                                                    ; --            ; altera_avalon_st_bytes_to_packets       ; --         ;
-; IP_TOOL_NAME                        ; altera_jtag_dc_streaming                                                                             ; --            ; altera_avalon_st_jtag_interface         ; --         ;
-; IP_TOOL_NAME                        ; altera_avalon_st_packets_to_bytes                                                                    ; --            ; altera_avalon_st_packets_to_bytes       ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_dll                                                                                    ; --            ; altera_mem_if_dll_cyclonev              ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_oct                                                                                    ; --            ; altera_mem_if_oct_cyclonev              ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_master_translator                                                                      ; --            ; altera_merlin_master_translator         ; --         ;
-; IP_TOOL_NAME                        ; altera_merlin_slave_translator                                                                       ; --            ; altera_merlin_slave_translator          ; --         ;
-; IP_TOOL_NAME                        ; altera_reset_controller                                                                              ; --            ; altera_reset_controller                 ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_emif                                                                              ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_emif                                                                              ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_emif                                                                              ; --            ; fpga_ddr3_0002                          ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_nextgen_ddr3_controller                                                                ; --            ; fpga_ddr3_c0                            ; --         ;
-; IP_TOOL_NAME                        ; alt_mem_if_jtag_master                                                                               ; --            ; fpga_ddr3_dmaster                       ; --         ;
-; IP_TOOL_NAME                        ; channel_adapter                                                                                      ; --            ; fpga_ddr3_dmaster_b2p_adapter           ; --         ;
-; IP_TOOL_NAME                        ; channel_adapter                                                                                      ; --            ; fpga_ddr3_dmaster_p2b_adapter           ; --         ;
-; IP_TOOL_NAME                        ; timing_adapter                                                                                       ; --            ; fpga_ddr3_dmaster_timing_adt            ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_phy_core                                                                          ; --            ; fpga_ddr3_p0                            ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_pll                                                                               ; --            ; fpga_ddr3_pll0                          ; --         ;
-; IP_TOOL_NAME                        ; altera_mem_if_ddr3_qseq                                                                              ; --            ; fpga_ddr3_s0                            ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; afi_mux_ddr3_ddrx                       ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; alt_mem_ddrx_mm_st_converter            ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; alt_mem_if_nextgen_ddr3_controller_core ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_avalon_packets_to_master         ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_avalon_sc_fifo                   ; --         ;
-; IP_TOOL_VERSION                     ; 11.1                                                                                                 ; --            ; altera_avalon_st_bytes_to_packets       ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_avalon_st_jtag_interface         ; --         ;
-; IP_TOOL_VERSION                     ; 11.1                                                                                                 ; --            ; altera_avalon_st_packets_to_bytes       ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_mem_if_dll_cyclonev              ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_mem_if_oct_cyclonev              ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_merlin_master_translator         ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_merlin_slave_translator          ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; altera_reset_controller                 ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3                               ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_0002                          ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_c0                            ; --         ;
-; IP_TOOL_VERSION                     ; 100.99.98.97                                                                                         ; --            ; fpga_ddr3_dmaster                       ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_dmaster_b2p_adapter           ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_dmaster_p2b_adapter           ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_dmaster_timing_adt            ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_p0                            ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_pll0                          ; --         ;
-; IP_TOOL_VERSION                     ; 13.0                                                                                                 ; --            ; fpga_ddr3_s0                            ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3.v                                                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_0002.v                                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_slave_translator.sv                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_master_translator.sv                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_dll_cyclonev.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_oct_cyclonev.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_c0.v                                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_mm_st_converter.v                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_addr_cmd.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_addr_cmd_wrap.v                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ddr2_odt_gen.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ddr3_odt_gen.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_lpddr2_addr_cmd.v                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_odt_gen.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rdwr_data_tmg.v                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_arbiter.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_burst_gen.v                                 ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_cmd_gen.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_csr.v                                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_buffer.v                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_buffer_manager.v                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_burst_tracking.v                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_dataid_manager.v                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_fifo.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_list.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rdata_path.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_wdata_path.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_define.iv                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder_32_syn.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder_64_syn.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_32_syn.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_64_syn.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_decoder_wrapper.v               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_axi_st_converter.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_input_if.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rank_timer.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_sideband.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_tbp.v                                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_timing_param.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_controller.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_controller_st_top.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_if_nextgen_ddr3_controller_core.sv               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_controller.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_synchronizer.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_controller.sdc                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_p2b_adapter.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_b2p_adapter.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_packets_to_master.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_packets_to_bytes.v                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_bytes_to_packets.v                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_sc_fifo.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_timing_adt.v                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_jtag_interface.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_dc_streaming.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_sld_node.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_streaming.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_pli_streaming.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_clock_crosser.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_pipeline_base.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_idle_remover.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_idle_inserter.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer.c                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer.h                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer_defines.h                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_make_qsys_seq.tcl                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0.v                                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_mm_bridge.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst.v            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst_test_bench.v ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_mem_no_ifdef_params.sv           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_arbitrator.sv                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_burst_uncompressor.sv                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_master_agent.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_slave_agent.sv                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_traffic_limiter.sv                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router.sv                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router_001.sv                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router_002.sv                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux.sv                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux_001.sv                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux_002.sv                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_mux_003.sv                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_mux_005.sv                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router.sv                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router_003.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router_005.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_irq_mapper.sv                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_demux_003.sv                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_demux_005.sv                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_mux.sv                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_mux_001.sv                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ac_ROM_no_ifdef_params.v                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ac_ROM_reg.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_bitcheck.v                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_core.sv                                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_datamux.v                                     ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_data_broadcast.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_data_decoder.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ddr3.v                                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_di_buffer.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_di_buffer_wrap.v                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_dm_decoder.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_generic.sv                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_inst_ROM_no_ifdef_params.v                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_inst_ROM_reg.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_jumplogic.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr12.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr36.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr72.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_pattern_fifo.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ram.v                                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ram_csr.v                                     ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_read_datapath.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_write_decoder.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_data_mgr.sv                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_phy_mgr.sv                                     ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_reg_file.sv                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_acv_phase_decode.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_acv_wrapper.sv                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_mgr.sv                                     ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_reg_file.v                                 ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_siii_phase_decode.v                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_siii_wrapper.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_sv_phase_decode.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_sv_wrapper.sv                              ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_sequencer_mem.hex                           ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_AC_ROM.hex                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_inst_ROM.hex                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/afi_mux_ddr3_ddrx.v                                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_clock_pair_generator.v                      ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_read_valid_selector.v                       ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_addr_cmd_datapath.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_reset.v                                     ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_acv_ldc.v                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_memphy.sv                                   ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_reset_sync.v                                ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_new_io_pads.v                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_fr_cycle_shifter.v                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_fr_cycle_extender.v                         ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_read_datapath.sv                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_write_datapath.v                            ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_core_shadow_registers.sv                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_simple_ddio_out.sv                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_phy_csr.sv                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_iss_probe.v                                 ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_addr_cmd_pads.v                             ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_flop_mem.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0.sv                                          ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_altdqdqs.v                                  ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altdq_dqs2_acv_cyclonev.sv                               ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_pll0.sv                                        ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.cmp                                                                    ; --            ; --                                      ; --         ;
-; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3/alt_mem_ddrx_define.iv                                                 ; --            ; --                                      ; --         ;
-; PARTITION_COLOR                     ; 16764057                                                                                             ; --            ; --                                      ; Top        ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                                ; --            ; --                                      ; Top        ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                               ; --            ; --                                      ; Top        ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                  ; --            ; --                                      ; --         ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                ; --            ; --                                      ; --         ;
-; SLD_INFO                            ; QSYS_NAME fpga_ddr3 HAS_SOPCINFO 1                                                                   ; --            ; fpga_ddr3                               ; --         ;
-; SOPCINFO_FILE                       ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.sopcinfo                                                               ; --            ; --                                      ; --         ;
-; SPD_FILE                            ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.spd                                                                    ; --            ; --                                      ; --         ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                                                                   ; --            ; --                                      ; --         ;
-+-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-----------------------------------------+------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                                                      ;
++-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
+; Assignment Name                     ; Value                                                                                                ; Default Value ; Entity Name ; Section Id ;
++-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
+; COMPILER_SIGNATURE_ID               ; 0.146071487005412                                                                                    ; --            ; --          ; --         ;
+; ECO_REGENERATE_REPORT               ; On                                                                                                   ; Off           ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3.v                                                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_0002.v                                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_slave_translator.sv                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_master_translator.sv                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_dll_cyclonev.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_oct_cyclonev.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_c0.v                                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_mm_st_converter.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_addr_cmd.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_addr_cmd_wrap.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ddr2_odt_gen.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ddr3_odt_gen.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_lpddr2_addr_cmd.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_odt_gen.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rdwr_data_tmg.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_arbiter.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_burst_gen.v                                 ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_cmd_gen.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_csr.v                                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_buffer.v                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_buffer_manager.v                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_burst_tracking.v                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_dataid_manager.v                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_fifo.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_list.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rdata_path.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_wdata_path.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_define.iv                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder_32_syn.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_decoder_64_syn.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_32_syn.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_64_syn.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_ecc_encoder_decoder_wrapper.v               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_axi_st_converter.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_input_if.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_rank_timer.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_sideband.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_tbp.v                                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_timing_param.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_controller.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_ddrx_controller_st_top.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/alt_mem_if_nextgen_ddr3_controller_core.sv               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_controller.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_synchronizer.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_reset_controller.sdc                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_p2b_adapter.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_b2p_adapter.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_packets_to_master.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_packets_to_bytes.v                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_bytes_to_packets.v                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_sc_fifo.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_dmaster_timing_adt.v                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_jtag_interface.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_dc_streaming.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_sld_node.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_jtag_streaming.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_pli_streaming.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_clock_crosser.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_pipeline_base.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_idle_remover.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_st_idle_inserter.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer.c                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer.h                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_software/sequencer_defines.h                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_make_qsys_seq.tcl                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0.v                                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_avalon_mm_bridge.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst.v            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_cpu_cv_sim_cpu_inst_test_bench.v ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_mem_if_sequencer_mem_no_ifdef_params.sv           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_arbitrator.sv                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_burst_uncompressor.sv                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_master_agent.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_slave_agent.sv                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altera_merlin_traffic_limiter.sv                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router.sv                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router_001.sv                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_addr_router_002.sv                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux.sv                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux_001.sv                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_demux_002.sv                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_mux_003.sv                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_cmd_xbar_mux_005.sv                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router.sv                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router_003.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_id_router_005.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_irq_mapper.sv                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_demux_003.sv                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_demux_005.sv                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_mux.sv                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_rsp_xbar_mux_001.sv                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ac_ROM_no_ifdef_params.v                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ac_ROM_reg.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_bitcheck.v                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_core.sv                                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_datamux.v                                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_data_broadcast.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_data_decoder.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ddr3.v                                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_di_buffer.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_di_buffer_wrap.v                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_dm_decoder.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_generic.sv                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_inst_ROM_no_ifdef_params.v                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_inst_ROM_reg.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_jumplogic.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr12.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr36.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_lfsr72.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_pattern_fifo.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ram.v                                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_ram_csr.v                                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_read_datapath.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/rw_manager_write_decoder.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_data_mgr.sv                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_phy_mgr.sv                                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_reg_file.sv                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_acv_phase_decode.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_acv_wrapper.sv                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_mgr.sv                                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_reg_file.v                                 ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_siii_phase_decode.v                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_siii_wrapper.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_sv_phase_decode.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/sequencer_scc_sv_wrapper.sv                              ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_sequencer_mem.hex                           ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_AC_ROM.hex                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_s0_inst_ROM.hex                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/afi_mux_ddr3_ddrx.v                                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_clock_pair_generator.v                      ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_read_valid_selector.v                       ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_addr_cmd_datapath.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_reset.v                                     ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_acv_ldc.v                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_memphy.sv                                   ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_reset_sync.v                                ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_new_io_pads.v                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_fr_cycle_shifter.v                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_fr_cycle_extender.v                         ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_read_datapath.sv                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_write_datapath.v                            ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_core_shadow_registers.sv                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_simple_ddio_out.sv                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_phy_csr.sv                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_iss_probe.v                                 ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_addr_cmd_pads.v                             ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_flop_mem.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0.sv                                          ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_p0_altdqdqs.v                                  ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/altdq_dqs2_acv_cyclonev.sv                               ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_pll0.sv                                        ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.cmp                                                                    ; --            ; --          ; --         ;
+; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3/alt_mem_ddrx_define.iv                                                 ; --            ; --          ; --         ;
+; PARTITION_COLOR                     ; 16764057                                                                                             ; --            ; --          ; Top        ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING                                                                                ; --            ; --          ; Top        ;
+; PARTITION_NETLIST_TYPE              ; SOURCE                                                                                               ; --            ; --          ; Top        ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                                                                  ; --            ; --          ; --         ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                                                                ; --            ; --          ; --         ;
+; SLD_INFO                            ; QSYS_NAME fpga_ddr3 HAS_SOPCINFO 1                                                                   ; --            ; fpga_ddr3   ; --         ;
+; SOPCINFO_FILE                       ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.sopcinfo                                                               ; --            ; --          ; --         ;
+; SPD_FILE                            ; FPGA_DDR3/fpga_ddr3/fpga_ddr3.spd                                                                    ; --            ; --          ; --         ;
+; SYNTHESIS_ONLY_QIP                  ; On                                                                                                   ; --            ; --          ; --         ;
++-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:49     ; 1.8                     ; 748 MB              ; 00:02:28                           ;
-; Fitter                    ; 00:05:58     ; 1.9                     ; 2047 MB             ; 00:07:54                           ;
-; Assembler                 ; 00:00:34     ; 1.0                     ; 537 MB              ; 00:00:32                           ;
-; TimeQuest Timing Analyzer ; 00:01:56     ; 2.1                     ; 1472 MB             ; 00:02:34                           ;
-; Total                     ; 00:10:17     ; --                      ; --                  ; 00:13:28                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 1651 MB             ; 00:00:42                           ;
+; Total                ; 00:00:21     ; --                      ; --                  ; 00:00:42                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                             ;
-+---------------------------+------------------+----------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name        ; OS Version ; Processor type ;
-+---------------------------+------------------+----------------+------------+----------------+
-; Analysis & Synthesis      ; micro31          ; CentOS release ; 5          ; x86_64         ;
-; Fitter                    ; micro31          ; CentOS release ; 5          ; x86_64         ;
-; Assembler                 ; micro31          ; CentOS release ; 5          ; x86_64         ;
-; TimeQuest Timing Analyzer ; micro31          ; CentOS release ; 5          ; x86_64         ;
-+---------------------------+------------------+----------------+------------+----------------+
++--------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                      ;
++----------------------+------------------+--------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name      ; OS Version ; Processor type ;
++----------------------+------------------+--------------+------------+----------------+
+; Analysis & Synthesis ; diana-laptop     ; Ubuntu 15.10 ; 15         ; x86_64         ;
++----------------------+------------------+--------------+------------+----------------+
 
 
 ------------
 ; Flow Log ;
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off SoCKit_DDR3_RTL_Test -c SoCKit_DDR3_RTL_Test
-quartus_fit --read_settings_files=off --write_settings_files=off SoCKit_DDR3_RTL_Test -c SoCKit_DDR3_RTL_Test
-quartus_asm --read_settings_files=off --write_settings_files=off SoCKit_DDR3_RTL_Test -c SoCKit_DDR3_RTL_Test
-quartus_sta SoCKit_DDR3_RTL_Test -c SoCKit_DDR3_RTL_Test
 
 
 

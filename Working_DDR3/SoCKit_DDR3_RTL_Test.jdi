@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="a6d04fa6472d88f72663"/>
+    <hash md5_digest_80b="a0cc7cf945da8129c488"/>
   </project>
   <file_info>
     <file device="5CSXFC6D6F31C8ES" path="SoCKit_DDR3_RTL_Test.sof" usercode="0xFFFFFFFF"/>
@@ -90,6 +90,12 @@
     <sld_info hpath="fpga_ddr3:fpga_ddr3_inst" name="fpga_ddr3_inst">
       <assignment_values>
         <assignment_value text="QSYS_NAME fpga_ddr3 HAS_SOPCINFO 1"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+    <sld_info hpath="sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:instrumentation_fabric" library="alt_sld_fab" name="instrumentation_fabric">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME alt_sld_fab HAS_SOPCINFO 1"/>
       </assignment_values>
       <parameters/>
     </sld_info>

@@ -140,9 +140,46 @@ reverse_mask rm (
 	.kernel (rm_kernel),
 	.reversed (rm_reversed));
 
+logic store;
+logic write_done;
+write_data wd (
+	.iCLK (iCLK),
+	.store (store),
+	.buffer (output_test),
+	.avl_waitrequest_n (avl_waitrequest_n),
+	.avl_address (avl_address),
+	.avl_burstbegin (avl_burstbegin),
+	.avl_writedata (avl_writedata),
+	.avl_write (avl_write),
+	.avl_read (avl_read),
+	.write_done (write_done)
+);
+
+logic load;
+logic read_done;
+load_data ld (
+	.iCLK (iCLK),
+	.load (load),
+	.avl_readdatavalid (avl_readdatavalid),
+	.avl_burstbegin (avl_burstbegin),
+	.avl_wait_request_n (avl_wait_request_n),
+	.avl_address (avl_address),
+	.avl_readdata (avl_readdata),
+	.avl_write (avl_write),
+	.avl_read (avl_read),
+	.buffer (output_test),
+	.read_done (read_done)
+	);
+
 
 //=====================================================
-// DDR3 stuff
+// Registers for storing kernels and output representation
+//=====================================================
+reg [511:0][15:0] input_test;
+reg [511:0][15:0] output_test;
+
+//=====================================================
+// Test load/store modules
 //=====================================================
 always@(posedge iCLK)
   if (!iRST_n)
@@ -150,26 +187,65 @@ always@(posedge iCLK)
   else  
   	 clk_cnt <= clk_cnt + 64'b1;
 
+reg [5:0] test_index;
 always@(posedge iCLK)
 	begin
 		if (!iRST_n)
 		begin
-			convo_in <= 0;
-			convo_mask <= 0;
-			convo_bias <= 1;
+			test_index <= 0;
+			write_count <= 5'b0;
+			store <= 0;
+			write_done <= 0;
+			load <= 0;
+			read_done <= 0;
+			input_test <= {512{1'b1}};
+			output_test <= {512{1'b1}};
 		end
 		else
 		begin
-		
-		case (c_state
+		case (c_state)
 		 0 : begin
-			avl_addr <= {ADDR_W{1'b0}};
 			if (local_init_done && trigger)
 			begin
 				c_state <= 1;
+			end
+		end
 		 1 : begin
-			avl_writedata <= 
-		
+			store <= 1;
+			if (!write_done) c_state <= 1;
+			else c_state <= 2;
+		end
+		 2 : begin
+			if (!read_done) c_state <= 2;
+			else c_state <= 3;
+		end
+		 3 : begin
+			if (input_test[test_index] == output_test[test_index])
+				c_state <= 4;
+			else
+				c_state <= 5;
+			end
+		 4 : begin
+			if (test_index > 510) begin
+				avl_address <= {ADDR_W{1'b0}};
+				c_state <= 6;
+			end
+			else
+			begin
+				test_index <= test_index + 1'b1;
+				c_state <= 3;
+			end
+		end
+		6 : c_state <= 6;
+		5 : c_state <= 5;
+	endcase
+	end
+end
+
+//=====================================================
+// DDR3 stuff
+//=====================================================
+
 
 /*
 always@(posedge iCLK)
@@ -216,7 +292,7 @@ begin
 	  		end
 	  	end
 	  	3 : begin
-	  	  if (max_avl_address) //finish write all(burst) 
+	  	   if (max_avl_address) //finish write all(burst) 
 	  		begin
 	  			avl_address <=  {ADDR_W{1'b0}};
 	  			c_state <= 10;
@@ -281,10 +357,10 @@ begin
 	  endcase
   end
 end
-		
-// test result
-assign drv_status_pass = (c_state == 9) ? 1 : 0;
-assign drv_status_fail = (c_state == 8) ? 1 : 0;
-assign drv_status_test_complete = drv_status_pass || drv_status_fail;
 */
-endmodule 
+// test result
+assign drv_status_pass = (c_state == 6) ? 1 : 0;
+assign drv_status_fail = (c_state == 5) ? 1 : 0;
+assign drv_status_test_complete = drv_status_pass || drv_status_fail;
+
+endmodule

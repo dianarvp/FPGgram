@@ -9,10 +9,10 @@ parameter WIDTH_IN = 10;
 parameter WIDTH_OUT = WIDTH_IN - 2;
 
 
-input [(WIDTH_IN * WIDTH_IN - 1):0] pixels_in;
+input [(WIDTH_IN * WIDTH_IN - 1):0][31:0] pixels_in;
 input [8:0][15:0] mask;
 input [15:0] bias;
-output [(WIDTH_OUT * WIDTH_OUT - 1):0] pixels_out;
+output [(WIDTH_OUT * WIDTH_OUT - 1):0][31:0] pixels_out;
 
 
 logic [(WIDTH_OUT * WIDTH_OUT - 1):0][15:0] pix_out;

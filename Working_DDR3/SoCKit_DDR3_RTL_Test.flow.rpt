@@ -1,5 +1,5 @@
 Flow report for SoCKit_DDR3_RTL_Test
-Fri Apr 15 06:08:11 2016
+Thu Apr 28 19:49:51 2016
 Quartus Prime Version 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition
 
 
@@ -41,7 +41,7 @@ agreement for further details.
 +----------------------------------------------------------------------------------------+
 ; Flow Summary                                                                           ;
 +-----------------------------+----------------------------------------------------------+
-; Flow Status                 ; Flow Failed - Fri Apr 15 06:08:11 2016                   ;
+; Flow Status                 ; Flow Failed - Thu Apr 28 19:49:51 2016                   ;
 ; Quartus Prime Version       ; 15.1.2 Build 193 02/01/2016 Patches 2.19 SJ Lite Edition ;
 ; Revision Name               ; SoCKit_DDR3_RTL_Test                                     ;
 ; Top-level Entity Name       ; SoCKit_DDR3_RTL_Test                                     ;
@@ -63,7 +63,7 @@ agreement for further details.
 +-------------------+----------------------+
 ; Option            ; Setting              ;
 +-------------------+----------------------+
-; Start date & time ; 04/15/2016 06:07:51  ;
+; Start date & time ; 04/28/2016 19:49:36  ;
 ; Main task         ; Compilation          ;
 ; Revision Name     ; SoCKit_DDR3_RTL_Test ;
 +-------------------+----------------------+
@@ -74,7 +74,7 @@ agreement for further details.
 +-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                                                                                ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+------------------------------------------------------------------------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 0.146071487005412                                                                                    ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 0.146188737605897                                                                                    ; --            ; --          ; --         ;
 ; ECO_REGENERATE_REPORT               ; On                                                                                                   ; Off           ; --          ; --         ;
 ; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3.v                                                        ; --            ; --          ; --         ;
 ; MISC_FILE                           ; FPGA_DDR3/fpga_ddr3/fpga_ddr3_sim/fpga_ddr3/fpga_ddr3_0002.v                                         ; --            ; --          ; --         ;
@@ -249,8 +249,8 @@ agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:21     ; 1.0                     ; 1651 MB             ; 00:00:42                           ;
-; Total                ; 00:00:21     ; --                      ; --                  ; 00:00:42                           ;
+; Analysis & Synthesis ; 00:00:16     ; 1.0                     ; 1239 MB             ; 00:00:36                           ;
+; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:36                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

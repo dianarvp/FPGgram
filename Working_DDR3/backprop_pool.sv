@@ -5,8 +5,8 @@ module backprop_pool(
 parameter WIDTH_IN = 4;
 parameter WIDTH_OUT = WIDTH_IN * 2;
 
-input[(WIDTH_IN*WIDTH_IN - 1):0][15:0] derivative_in;
-output[(WIDTH_OUT*WIDTH_OUT - 1):0][15:0] derivative_out;
+input[(WIDTH_IN*WIDTH_IN - 1):0][31:0] derivative_in;
+output[(WIDTH_OUT*WIDTH_OUT - 1):0][31:0] derivative_out;
 
 genvar i,j;
 generate for (i = 0; i < WIDTH_IN; i++) begin: for_i

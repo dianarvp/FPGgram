@@ -494,7 +494,7 @@ Avalon_bus_RW_Test fpga_ddr3_Verify(
 		
 		.drv_status_pass(fpga_ddr3_test_pass),
 		.drv_status_fail(fpga_ddr3_test_fail),
-		.drv_status_test_complete(fpga_ddr3_test_complete),
+		.drv_status_test_complete(fpga_ddr3_test_complete)
 );
 
 	

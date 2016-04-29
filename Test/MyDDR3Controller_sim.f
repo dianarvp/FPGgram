@@ -1,4 +1,0 @@
-MyDDR3Controller_sim/MyDDR3Controller.vhd
-MyDDR3Controller_sim/MyDDR3Controller/MyDDR3Controller_0002.vhd
-MyDDR3Controller_sim/MyDDR3Controller/MyDDR3Controller_pll0.vho
-MyDDR3Controller_sim/MyDDR3Controller/MyDDR3Controller_pll0_sim_delay.vhd

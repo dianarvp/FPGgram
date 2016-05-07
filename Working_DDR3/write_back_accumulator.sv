@@ -1,13 +1,22 @@
-//accumulator
 module accumulator (
+	//Signals for all
 	iCLK,
-	load_block,
-	start_reg,
-	stride,
-	buffer_data,	
+	ready,
+	reset,
+
+	//ALU interface
+	accumulate,
+	block_num,
+	block,
+
+	//Mem control interface for top level
 	load_ddr,
-	store,
+	store_ddr,
 	start_address,
+	stride,
+	rows,
+
+	//AVL signals
 	avl_readdatavalid,
 	avl_burstbegin,
 	avl_wait_request_n,
@@ -15,28 +24,52 @@ module accumulator (
 	avl_readdata,
 	avl_writedata,
 	avl_write,
-	avl_read,
-	buffer,
-	done
-	);
+	avl_read
+);
 
-parameter BUFFER_SIZE = 57344;
+
+parameter BUFFER_WIDTH = 512;
+parameter BUFFER_SIZE = BUFFER_WIDTH*BUFFER_WIDTH;
 parameter BLOCK_WIDTH = 8;
-parameter BLOCK_SIZE = 64;
-output [BUFFER_SIZE-1:0] buffer;
+parameter BLOCK_SIZE = BLOCK_WIDTH*BLOCK_WIDTH;
+parameter BLOCKS_ROW = BUFFER_WIDTH/BLOCK_WIDTH;
+reg [BUFFER_SIZE-1:0][31:0] buffer;
 
-//Interface for DDR3
+//Wires connecting buffer to input blocks
+wire [BUFFER_SIZE/BLOCK_SIZE:0][BLOCK_SIZE-1:0][31:0] blocks;
+
+genvar j, k;
+generate
+	for (j=0; j < BUFFER_WIDTH; j++) begin : for_j
+		for (k = 0; k < BUFFER_WIDTH; k++) begin : for_k
+			assign buffer[1+j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][7:0];
+			assign buffer[2*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][15:8];
+			assign buffer[3*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][23:16];
+			assign buffer[4*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][31:24];
+			assign buffer[5*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][39:32];
+			assign buffer[6*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][47:40];
+			assign buffer[7*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][55:48];
+			assign buffer[8*j*8*BUFFER_WIDTH + k*8 +: 8] = blocks[j*BLOCKS_ROW + k][63:56];
+		end
+	end
+endgenerate
+
+//Signals for all
 input iCLK;
-input load_ddr;
-input store;
-input [25:0] start_address;
-output done;
+input reset;
+output ready;
 
-//Local register interface
-input load_block;
-input [BLOCK_SIZE-1:0][31:0] buffer_data;
-input [7:0] stride;
-input [15:0] start_reg;
+//ALU write interface
+input accumulate;
+input block_num;
+input [BLOCK_SIZE-1:0][31:0] block;
+
+//Mem control interface for top level
+input load_ddr;
+input store_ddr;
+input [25:0] start_address;
+input [9:0] stride;
+input [9:0] rows;
 
 //AVL signals
 input avl_readdatavalid;
@@ -49,122 +82,79 @@ output avl_write;
 output avl_read;
 assign avl_burstbegin = avl_write || avl_read;
 
+logic i;
+
 reg [3:0] state;
 reg [15:0] index;
+reg [15:0] row;
 reg [4:0] write_count;
+// 0 : idle
+// 1 : write to ddr
 always@(posedge iCLK)
 begin
-	if (!load_ddr &!load_block && !store)
-	begin
-		write_count <= 1'b0;
-		index <= 1'b0;
+	if (reset) begin
+		//Reset memory
+		for ( i = 0; i < BUFFER_SIZE; i++) buffer[i] <= 31'b0;
+		
+		//Reset signals
 		state <= 0;
-		done <= 1;
-		avl_address <= {26{1'b0}};
-		end
-	else
-	begin
+		write_count <= 0;
+		index <= 0;
+		row <= 0;
+		ready <= 1;
+		avl_address <= {26{1'b0}};		
+	end
+	else if (accumulate)
+		for ( i = 0; i < BLOCK_SIZE; i++) blocks[block_num][i] <= blocks[block_num][i] + block[i];
+	else begin
 	case (state)
 	 0 : begin
-			if (done && load_ddr) begin
+			if (ready && store_ddr) begin
 				avl_address <= start_address;
-				state <= 1;
-				done <= 0;
-			end else if (done && store) begin
-				avl_address <= start_address;
-				state <= 4;
-				done <= 0;
-			end else if (done && load_block) begin
-				state <= 7;
-				done <= 0;
-			end
-		end
-		
-		//Reading from DDR3 to local registers
-	 1 : begin	
-			avl_read <= 1;
-
-			if (!write_count[3])
-				write_count <= write_count + 1'b1;
-				
-			if (avl_wait_request_n) //Ready to read
 				state <= 2;
-			end
-	 2 : begin
-			avl_read <= 0;
-			
-			if (!write_count[3])
-				write_count <= write_count + 1'b1;
-			
-			if (avl_readdatavalid)
-			begin				
-				buffer[128*32*avl_address +:128*32] <= avl_readdata;
-				state <= 3;
+				ready <= 0;
 			end
 		end
-	 3 : begin
+
+	// Writing data back to DDR3
+	 1: begin
+			avl_writedata <= buffer[4*index + BUFFER_WIDTH*row +:128];
 			if (write_count[3])
 			begin
 				write_count <= 5'b0;
-
-				if ((index + 128) > (BUFFER_SIZE - 1)) //Done reading 
-				begin
-					avl_address <=  {26{1'b0}};
-					state <= 8;
-				end
-				else // Read next
-				begin
-					avl_address <= avl_address + 1;
-					index <= index + 8'd128;
-					state <= 1;
-				end
-			end
-		end
-		
-		// Writing from local registers to DDR3
-	 4: begin
-			//avl_writedata <= buffer[128*avl_address +:128];
-			if (!write_count[3])
-			begin
 				avl_write <= 1'b1;
-				state <= 5;
+				state <= 2;
 			end
 			else write_count <= write_count + 1'b1;
 		end
-	 5 : begin
+	 2 : begin
 			if (avl_wait_request_n)
 			begin
 	  			avl_write <= 1'b0;
-	  			state <= 6;
+	  			state <= 3;
 	  		end
 		end
-	 6 : begin
-			if ((index + 8'd128) > (BUFFER_SIZE - 1)) // Loaded all memory
+	 3 : begin
+			if ((index > stride - 1) && (row > rows - 1)) // Loaded all memory
 			begin
 				avl_address <= {26{1'b0}};
-				state <= 8;
+				state <= 4;
 			end
 			else
 			begin
 				avl_address <= avl_address + 1'b1;
-				index <= index + 8'd128;
-				state <= 4;
+				state <= 2;
+				if (index > stride - 2)
+				begin
+					index <= 0;
+					row <= row + 1;
+				end else index <= index + 1;
 			end
 		end
-		
-		// Loading block of memory from computations to local registers
-	 7 : begin
-			//buffer[start_reg +: BLOCK_WIDTH] <= buffer_data[BLOCK_WIDTH-1:0];
-			/*buffer[start_reg*stride +: BLOCK_WIDTH] <= buffer_data[2 * BLOCK_WIDTH-1:BLOCK_WIDTH];
-			buffer[start_reg*2*stride +: BLOCK_WIDTH] <= buffer_data[3 * BLOCK_WIDTH-1:2 * BLOCK_WIDTH];
-			buffer[start_reg*3*stride +: BLOCK_WIDTH] <= buffer_data[4 * BLOCK_WIDTH-1:3 * BLOCK_WIDTH];
-			buffer[start_reg*4*stride +: BLOCK_WIDTH] <= buffer_data[5 * BLOCK_WIDTH-1:4 * BLOCK_WIDTH];
-			buffer[start_reg*5*stride +: BLOCK_WIDTH] <= buffer_data[6 * BLOCK_WIDTH-1:5 * BLOCK_WIDTH];
-			buffer[start_reg*6*stride +: BLOCK_WIDTH] <= buffer_data[7 * BLOCK_WIDTH-1:6 * BLOCK_WIDTH];
-			buffer[start_reg*7*stride +: BLOCK_WIDTH] <= buffer_data[8 * BLOCK_WIDTH-1:7 * BLOCK_WIDTH];*/
-		   state <= 8;
-		  end
-	 8 : done <= 1'b1;
+	 4 : begin
+		ready <= 1'b1;
+		state <= 0;
+	 end
 	 default : state <= 0;
 	 endcase
 	end

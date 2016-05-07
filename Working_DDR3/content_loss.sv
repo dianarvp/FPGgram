@@ -12,7 +12,7 @@ output [15:0] loss_out;
 logic[63:0][15:0] distance_squared;
 genvar i;
 generate for (i = 0; i < SIZE; i++) begin : for_i
-	assign distance_squared[i] = (content_pixels[i] - generated_pixels[i])*(content_pixels[i] - generated_pixels[i]);
+	assign distance_squared[i] = (content_pixels[i] - generated_pixels[i])*(content_pixels[i] - generated_pixels[i]) << 16;
 end
 endgenerate
 

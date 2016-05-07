@@ -1,7 +1,7 @@
 module read_buffer (
 	//Signals for all
 	iCLK,
-	done,
+	ready,
 	reset,
 
 	//Mem control interface for top level
@@ -11,8 +11,9 @@ module read_buffer (
 	stride,
 	rows,
 
-	//Memory blocks
-	blocks,
+	//ALU interface
+	block_num,
+	block,
 	
 	//AVL signals
 	avl_readdatavalid,
@@ -22,36 +23,45 @@ module read_buffer (
 	avl_readdata,
 	avl_writedata,
 	avl_write,
-	avl_read,
-	);
+	avl_read
+);
 
 parameter BUFFER_WIDTH = 512;
 parameter BUFFER_SIZE = BUFFER_WIDTH*BUFFER_WIDTH;
 parameter BLOCK_WIDTH = 10;
 parameter BLOCK_SIZE = BLOCK_WIDTH*BLOCK_WIDTH;
+parameter BLOCKS_ROW = BUFFER_WIDTH/(BLOCK_WIDTH-2);
 reg [BUFFER_SIZE-1:0][31:0] buffer;
-output [BUFFER_WIDTH*(BLOCK_WIDTH-2):0][BLOCK_SIZE-1:0][31:0] blocks;
 
-/*
+//Wires connecting buffer to output blocks
+wire [BUFFER_SIZE/BLOCK_SIZE:0][BLOCK_SIZE-1:0][31:0] blocks;
+genvar j, k;
 generate
-	genvar i;
-	for (i=0; i < BUFFER_SIZE; i++) begin
-		blocks[i][10:0] = buffer[i*8+10:i*8];
-		blocks[i][20:10] = buffer[i*8+20:i*8+10];
-		blocks[i][30:20] = buffer[i*8+30:i*8+20];
-		blocks[i][40:30] = buffer[i*8+40:i*8+30];
-		blocks[i][50:40] = buffer[i*8+50:i*8+40];
-		blocks[i][60:50] = buffer[i*8+60:i*8+50];
-		blocks[i][70:60] = buffer[i*8+70:i*8+60];
-		blocks[i][80:70] = buffer[i*8+80:i*8+70];
-		blocks[i][90:80] = buffer[i*8+90:i*8+80];
-		blocks[i][100:90] = buffer[i*8+100:i*8+90];
+	for (j=0; j < BUFFER_WIDTH/(BLOCK_WIDTH-2); j++) begin : for_j
+		for (k=0; k < BUFFER_SIZE; k++) begin : for_k
+			assign blocks[j*BLOCKS_ROW + k][9:0] = buffer[(0+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][19:10] = buffer[(1+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][29:20] = buffer[(2+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][39:30] = buffer[(3+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][49:40] = buffer[(4+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][59:50] = buffer[(5+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][69:60] = buffer[(6+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][79:70] = buffer[(7+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][89:80] = buffer[(8+j*8)*BUFFER_WIDTH + k*8 +: 10];
+			assign blocks[j*BLOCKS_ROW + k][99:90] = buffer[(9+j*8)*BUFFER_WIDTH + k*8 +: 10];
+
+		end
 	end
 endgenerate
-*/
+
+//Signals for all
 input iCLK;
 input reset;
-output done;
+output ready;
+
+//ALU read interface
+input block_num;
+output [BLOCK_SIZE-1:0][31:0] block;
 
 //Mem control interface for top level
 input load_ddr;
@@ -77,49 +87,41 @@ logic [15:0] index;
 logic [4:0] write_count;
 logic i;
 
+assign block = blocks[block_num];
+
 // 0: idle
-// 1: reset
-// 2: load from ddr
+// 1: load from ddr
 always@(posedge iCLK)
 begin
-	if (!reset && !load_ddr) begin
-		write_count <= 5'b0;
+	if (reset) begin
+		for (i = 0; i < BUFFER_SIZE; i++) buffer[i] <= 31'b0;
+		write_count <= 0;
 		index <= 16'b0;
 		row <= 16'b0;
 		state <= 0;
-		done <= 1;
-		avl_address <= {26{1'b0}};
+		ready <= 1;
+		avl_address <= {26{1'b0}};		
 	end
-
+	else begin
 	case (state)
 	 0 : begin
-			if (done && reset) begin
-				state <= 1;
-				done <= 0;
-			end else if (done && load_ddr) begin
+		if (ready && load_ddr) begin
 				avl_address <= start_address;
-				state <= 2;
-				done <= 0;
-			end
+				state <= 1;
+				ready <= 0;
 		end
-		
-	// Reset
-	 1 : begin
-			for (i = 0; i < BUFFER_SIZE; i++) buffer[i] <= 31'b0;
-			state <= 5;
-		end
-		
+	 end		
 	//Reading from DDR3 to local registers
-	 2 : begin	
+	 1 : begin	
 			avl_read <= 1;
 
 			if (!write_count[3])
 				write_count <= write_count + 1'b1;
 
 			if (avl_wait_request_n) //Ready to read
-				state <= 3;
+				state <= 2;
 		end
-	 3 : begin
+	 2 : begin
 			avl_read <= 0;
 
 			if (!write_count[3])
@@ -129,23 +131,23 @@ begin
 			begin 
 				if (pad) buffer[4*(index + 1) + BUFFER_WIDTH*(row+1) +: 4] <= avl_readdata;
 				else buffer[4*index + BUFFER_WIDTH*row +:4] <= avl_readdata;
-				state <= 4;
+				state <= 3;
 			end
 		end
-	 4 : begin
+	 3 : begin
 			if (write_count[3])
 			begin
 				write_count <= 5'b0;
 
 				if ((index > stride - 1) && (row > rows - 1)) //Done reading 
 				begin
-					state <= 5;
+					state <= 4;
 				end
 				else // Read next
 				begin
 					avl_address <= avl_address + 1;
 					state <= 1;
-					if (index + 1 > stride - 1)
+					if (index > stride - 2)
 					begin
 						index <= 0;
 						row <= row + 1;
@@ -153,9 +155,13 @@ begin
 				end
 			end
 		end
-	 5 : done <= 1'b1;
+	 4 : begin 
+		ready <= 1'b1;
+		state <= 0;
+	 end
 	 default : state <= 0;
 	 endcase
+	 end
 end
 
 endmodule

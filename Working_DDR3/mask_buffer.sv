@@ -1,13 +1,14 @@
 module mask_buffer (
 	//Signals for all
 	iCLK,
-	done,
+	ready,
+	reset,
 
 	//Mem control interface for top level
 	load_ddr,
 	start_address,
 
-	//mask
+	//For ALU
 	mask,
 	
 	//AVL signals
@@ -18,12 +19,14 @@ module mask_buffer (
 	avl_readdata,
 	avl_writedata,
 	avl_write,
-	avl_read,
+	avl_read
 );
 
 input iCLK;
-output done;
+input reset;
+output ready;
 
+//For ALU
 output [8:0][31:0] mask;
 
 //Mem control interface for top level
@@ -41,30 +44,29 @@ output avl_write;
 output avl_read;
 assign avl_burstbegin = avl_write || avl_read;
 
-//logic [11:0][31:0] internal_mem;
 logic [3:0] state;
 logic [4:0] write_count;
-logic [1:0] index;
+logic [7:0] index;
 logic i;
 
 // 0: idle
 // 1: load mask from ddr
 always@(posedge iCLK)
 begin
-	if (!load_ddr) begin
+	if (reset) begin
 		write_count <= 5'b0;
 		state <= 0;
-		done <= 1;
-		index <= 2'b0;
+		ready <= 1;
+		index <= 7'b0;
 		avl_address <= {26{1'b0}};
 	end
-
+	else begin
 	case (state)
 	 0 : begin
-			if (done && load_ddr) begin
+			if (ready && load_ddr) begin
 				avl_address <= start_address;
 				state <= 1;
-				done <= 0;
+				ready <= 0;
 			end
 		end
 		//Reading from DDR3 to output
@@ -94,11 +96,11 @@ begin
 			begin
 				write_count <= 5'b0;
 
-				if (index + 1 > 3) //Done reading 
-				begin
-					state <= 4;
-				end
-				else // Read next
+				//Done reading
+				if (index + 1 > 8) state <= 4;
+				else
+				
+				// Read next
 				begin
 					avl_address <= avl_address + 1;
 					state <= 1;
@@ -106,9 +108,13 @@ begin
 				end
 			end
 		end
-	 4 : done <= 1'b1;
+	 4 : begin
+			ready <= 1'b1;
+			state <= 0;
+	 end
 	 default : state <= 0;
 	 endcase
+	 end
 end
 
 endmodule

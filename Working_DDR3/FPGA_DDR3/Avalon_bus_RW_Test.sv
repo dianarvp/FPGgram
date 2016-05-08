@@ -4,15 +4,9 @@ module Avalon_bus_RW_Test (
 		iRST_n,
 		iBUTTON,
 
-		local_init_done,
-		avl_waitrequest_n,                 
-		avl_address,                      
-		avl_readdatavalid,                 
-		avl_readdata,                      
-		avl_writedata,                     
-		avl_read,                          
-		avl_write,    
-		avl_burstbegin,
+		AVL.Master avl,
+		READ_BUFFER.TOP rb1,
+		READ_BUFFER
 		
 		drv_status_pass,
 		drv_status_fail,
@@ -79,96 +73,9 @@ assign max_avl_address = &avl_address;
 assign same = data_reg == avl_writedata;
 
 //=====================================================
-// Instantiating everything
+// Instantiate ALU and Memory control unit
 //=====================================================
 
-reg [63:0][31:0] ap_in;
-reg [15:0][31:0] ap_out;
-avg_pool av (
-	.pixels_in (ap_in),
-	.pixels_out (ap_out));
-	
-reg [63:0][31:0] bcl_content_pixels;
-reg [63:0][31:0] bcl_generated_pixels;
-reg [63:0][31:0] bcl_derivative_out;
-backprop_content_loss bcl (
-	.content_pixels (bcl_content_pixels),
-	.generated_pixels (bcl_generated_pixels),
-	.derivative_out (bcl_derivative_out));
-	
-reg [15:0][31:0] bp_in;
-reg [63:0][31:0] bp_out;
-backprop_pool bp (
-	.derivative_in (bp_in),
-	.derivative_out (bp_out));
-
-reg [63:0][31:0] br_derivative_in;
-reg [63:0][31:0] br_pixels;
-reg [63:0][31:0] br_derivative_out;
-backprop_relu br (
-	.derivative_in (br_derivative_in),
-	.pixels (br_pixels),
-	.derivative_out (br_derivative_out));
-	
-reg [63:0][31:0] cl_content_pixels;
-reg [63:0][31:0] cl_generated_pixels;
-reg [63:0][31:0] cl_loss_out;
-content_loss cl (
-	.content_pixels (cl_content_pixels),
-	.generated_pixels (cl_generated_pixels),
-	.loss_out (cl_loss_out));
-
-reg [99:0][31:0] convo_in;
-reg [8:0][31:0] convo_mask;
-reg [31:0] convo_bias;
-reg [63:0][31:0] convo_out;
-convolution convo( 
-	.pixels_in (convo_in),
-	.mask (convo_mask),
-	.bias (convo_bias),
-	.pixels_out (convo_out));
-
-reg [63:0][31:0] r_pixels_in;
-reg [63:0][31:0] r_pixels_out;
-relu r (
-	.pixels_in (r_pixels_in),
-	.pixels_out (r_pixels_out));
-	
-reg [8:0][31:0] rm_kernel;
-reg [8:0][31:0] rm_reversed;
-reverse_mask rm (
-	.kernel (rm_kernel),
-	.reversed (rm_reversed));
-/*
-logic done;
-logic load_block;
-logic load_ddr;
-logic store;
-logic [15:0] start_reg;
-logic [8:0] stride;
-logic [63:0][31:0] buffer_data;
-logic [25:0] start_address;
-logic [57343:0] buffer;
-load_store ls (
-	.iCLK (iCLK),
-	.load_block (load_block),
-	.start_reg (start_reg),
-	.stride (stride),
-	.buffer_data (buffer_data),	
-	.load_ddr (load_ddr),
-	.store (store),
-	.start_address (start_address),
-	.avl_readdatavalid (avl_readdatavalid),
-	.avl_burstbegin (avl_burstbegin),
-	.avl_wait_request_n (avl_waitrequest_n),
-	.avl_address (avl_address),
-	.avl_readdata (avl_readdata),
-	.avl_write (avl_write),
-	.avl_read (avl_read),
-	.buffer (buffer),
-	.done (done)
-	);
-*/
 
 
 //=====================================================

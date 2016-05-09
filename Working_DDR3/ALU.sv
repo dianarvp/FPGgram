@@ -7,16 +7,17 @@ module ALU (
 	WRITE_BACK.ALU out_block,
 	ALU_i.ALU from_top
 );
-parameter PADDED_SIZE = 10
-parameter NOT_PADDED_SIZE = 8
+parameter PADDED_SIZE = 10;
+parameter NOT_PADDED_SIZE = 8;
+
 // 8x8 inputs
 reg [63:0][31:0] no_pad1;
 reg [63:0][31:0] no_pad2;
 genvar i,j;
 generate for (i = 0; i < NOT_PADDED_SIZE; i++) begin: for_i
-	generate for (j = 0; j < NOT_PADDED_SIZE; j++) begin: for_j
-		assign no_pad1[i+j*NOT_PADDED_SIZE] = block1.block[i+j*PADDED_SIZE;
-		assign no_pad2[i+j*NOT_PADDED_SIZE] = block2.block[i+j*PADDED_SIZE;
+	for (j = 0; j < NOT_PADDED_SIZE; j++) begin: for_j
+		assign no_pad1[i+j*NOT_PADDED_SIZE] = in_block1.block[i+j*PADDED_SIZE];
+		assign no_pad2[i+j*NOT_PADDED_SIZE] = in_block2.block[i+j*PADDED_SIZE];
 	end
 end
 endgenerate
@@ -68,7 +69,7 @@ reverse_mask rm (
 
 reg [8:0][31:0] convo_mask;
 reg [63:0][31:0] convo_out;
-assign convo_mask = rev_mask ? rm_reversed : mask.mask; 
+assign convo_mask = mask.rev_mask ? rm_reversed : mask.mask; 
 convolution convo( 
 	.pixels_in (in_block1.block),
 	.mask (convo_mask),
@@ -128,7 +129,7 @@ relu r (
 
 reg state;
 initial begin state <= 0;
-	ready <= 1;
+	from_top.ready <= 1;
 end
 
 // 0: Ready for instructions / Executing instruction
@@ -137,12 +138,12 @@ always @(posedge iCLK)
 begin
 	case (state)
 	 0 : begin
-			if (execute): begin
-				ready <= 0;
+			if (from_top.execute) begin
+				from_top.ready <= 0;
 				out_block.accumulate <= 1;
 				state <= 1;
 
-				case (operation)
+				case (from_top.operation)
 					3'b000 : out_block.block <= convo_out;
 					3'b001 : out_block.block <= ap_out;
 					3'b010 : out_block.block <= bp_out;
@@ -156,7 +157,7 @@ begin
 	 1 : begin
 			out_block.accumulate <= 0;
 			state <= 0;
-			ready <= 1;
+			from_top.ready <= 1;
 		end
 	endcase
 end

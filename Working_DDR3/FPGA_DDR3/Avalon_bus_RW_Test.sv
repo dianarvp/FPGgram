@@ -4,10 +4,15 @@ module Avalon_bus_RW_Test (
 		iRST_n,
 		iBUTTON,
 
-		AVL.Master avl,
-		READ_BUFFER.TOP rb1,
-		READ_BUFFER
-		
+		local_init_done,
+		avl_waitrequest_n,                 
+		avl_address,                      
+		avl_readdatavalid,                 
+		avl_readdata,                      
+		avl_writedata,                     
+		avl_read,                          
+		avl_write,    
+		avl_burstbegin,
 		drv_status_pass,
 		drv_status_fail,
 		drv_status_test_complete,

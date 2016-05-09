@@ -4,9 +4,10 @@ parameter WIDTH_IN = 8;
 parameter WIDTH_OUT = 4;
 
 input[(WIDTH_IN*WIDTH_IN - 1):0][31:0] pixels_in;
+input [1:0] sub_block;
 output[(WIDTH_IN*WIDTH_IN - 1):0][31:0] pixels_out;
 
-logic [WIDTH_OUT*WIDTH_OUT-1][31:0] pooled_pix;
+logic [WIDTH_OUT*WIDTH_OUT-1:0][31:0] pooled_pix;
 genvar i,j;
 generate for (i = 0; i < WIDTH_OUT; i++) begin: for_i
 	for (j = 0; j < WIDTH_OUT; j++) begin: for_j

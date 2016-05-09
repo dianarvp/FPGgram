@@ -99,17 +99,20 @@ endinterface
 
 /***************** ALU interface ******************/
 interface ALU_i;
-	logic [4:0] operation;
+	logic execute;
+	logic [2:0] operation;
 	logic rev_mask;
 	logic [1:0] sub_block;
 	logic [7:0] sub_index;
 	logic ready;
-	modport TOP ( output operation,
+	modport TOP ( output execute,
+								operation,
 								rev_mask,
 								sub_block,
 								sub_index,
 						input ready);
-	modport ALU ( input operation,
+	modport ALU ( input execute,
+								operation,
 								rev_mask,
 								sub_block,
 								sub_index,

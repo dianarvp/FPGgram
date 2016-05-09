@@ -1,7 +1,6 @@
 module convolution( 
 	pixels_in,
 	mask,
-	bias,
 	pixels_out);
 
 
@@ -11,7 +10,6 @@ parameter WIDTH_OUT = WIDTH_IN - 2;
 
 input [(WIDTH_IN * WIDTH_IN - 1):0][31:0] pixels_in;
 input [8:0][31:0] mask;
-input [31:0] bias;
 output [(WIDTH_OUT * WIDTH_OUT - 1):0][31:0] pixels_out;
 
 
@@ -25,7 +23,7 @@ generate for (i = 1; i < (WIDTH_IN - 1); i++) begin: for_i
 					 pixels_in[((i + (j*WIDTH_IN))+(WIDTH_IN + 1)):((i + (j*WIDTH_IN))+(WIDTH_IN - 1))]}),
 			.kernel (mask),
 			.out (pix_out[(i-1)+(j-1)*WIDTH_OUT]));
-		assign pixels_out[(i-1)+(j-1)*WIDTH_OUT] = pix_out[(i-1)+(j-1)*WIDTH_OUT] - bias;
+		assign pixels_out[(i-1)+(j-1)*WIDTH_OUT] = pix_out[(i-1)+(j-1)*WIDTH_OUT];
 	end
 end
 endgenerate

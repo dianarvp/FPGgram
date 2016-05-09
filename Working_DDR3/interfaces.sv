@@ -117,3 +117,4 @@ interface ALU_i;
 								sub_block,
 								sub_index,
 					  output ready);
+endinterface

@@ -9,15 +9,15 @@ interface AVL;
 	logic [127:0] avl_writedata;
 	logic avl_write;
 	logic avl_read;
-	modport Master (  input local_init_done,
-									avl_readdatavalid,
-									avl_wait_request_n,
-									avl_readdata,
-							output avl_burstbegin,
-									avl_address,
-									avl_writedata,
-									avl_write,
-									avl_read);
+	modport Master (input local_init_done,
+						avl_readdatavalid,
+						avl_wait_request_n,
+						avl_readdata,
+				output avl_burstbegin,
+						avl_address,
+						avl_writedata,
+						avl_write,
+						avl_read);
 endinterface
 
 interface READ_BUFFER #(parameter BLOCK_SIZE = 100);
@@ -28,8 +28,8 @@ interface READ_BUFFER #(parameter BLOCK_SIZE = 100);
 	logic load_ddr;
 	logic pad;
 	logic [25:0] start_address;
-	logic [9:0] stride;
-	logic [9:0] rows;
+	logic [7:0] stride;
+	logic [7:0] rows;
 	modport TOP (output load_ddr,
 								start_address,
 								stride,
@@ -72,12 +72,12 @@ interface WRITE_BACK #(parameter BLOCK_SIZE = 64);
 	logic reset;
 	logic ready;
 	logic accumulate;
-	logic [10:0] block_num;
+	logic [5:0] block_num;
 	logic [BLOCK_SIZE-1:0][31:0] block;
 	logic store_ddr;
 	logic [25:0] start_address;
-	logic [9:0] stride;
-	logic [9:0] rows;
+	logic [7:0] stride;
+	logic [7:0] rows;
 	modport TOP (output store_ddr,
 								start_address,
 								stride,
@@ -103,7 +103,7 @@ interface ALU_i;
 	logic [2:0] operation;
 	logic rev_mask;
 	logic [1:0] sub_block;
-	logic [7:0] sub_index;
+	logic [15:0] sub_index;
 	logic ready;
 	modport TOP ( output execute,
 								operation,

@@ -4,7 +4,7 @@ module write_back_accumulator (
 	AVL.Master avl 			//DDR3 interface
 );
 
-parameter BUFFER_WIDTH = 512;
+parameter BUFFER_WIDTH = 124;
 parameter BUFFER_SIZE = BUFFER_WIDTH*BUFFER_WIDTH;
 parameter BLOCK_WIDTH = 8;
 parameter BLOCK_SIZE = BLOCK_WIDTH*BLOCK_WIDTH;

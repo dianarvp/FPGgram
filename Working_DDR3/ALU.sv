@@ -99,27 +99,21 @@ relu r (
 *		- convolution
 *		- reLU
 *		- forward pool with the sub_block flag
-*
 *  LOSS FUNCTIONS
 *		Content loss:
 *			- difference
 *			- dot product
-*
 *		Artistic loss:
 *			- Gram matrix: dot product with the sub_index flag
-*	
 *		 	- Total loss:
 *				- difference 
 *				- dot product
-*
 *	DERIVATIVES:
 *		Content loss:
 *			- difference
-*
 *		Artistic loss:
 *			- matrix Multiplication: Dot product
 *			- difference
-*
 * 		Backwards pass:
 *			- backward pool				FLAGS: sub_block
 *			- backprop reLu

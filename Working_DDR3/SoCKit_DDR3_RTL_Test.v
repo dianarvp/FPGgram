@@ -42,7 +42,7 @@
 //`define ENABLE_HPS
 //`define ENABLE_HSMC_XCVR
 module SoCKit_DDR3_RTL_Test(
-
+	select,
 							///////////AUD/////////////
 							AUD_ADCDAT,
 							AUD_ADCLRCK,
@@ -465,7 +465,7 @@ assign FAN_CTRL = 1'bz;
 	);
 
 	/////////////////// DDR3(A) Test ///////////////////
-wire         fpga_ddr3_avl_ready;                  //          avl.waitrequest_n
+/*wire         fpga_ddr3_avl_ready;                  //          avl.waitrequest_n
 wire         fpga_ddr3_avl_burstbegin;             //             .beginbursttransfer
 wire [25:0]  fpga_ddr3_avl_addr;                   //             .address
 wire         fpga_ddr3_avl_rdata_valid;            //             .readdatavalid
@@ -495,9 +495,37 @@ Avalon_bus_RW_Test fpga_ddr3_Verify(
 		.drv_status_pass(fpga_ddr3_test_pass),
 		.drv_status_fail(fpga_ddr3_test_fail),
 		.drv_status_test_complete(fpga_ddr3_test_complete)
+); */
+/////////////////////////////////////////////
+// Memory control unit
+input [3:0] select;
+AVL to_ddr3();
+READ_BUFFER read_buff1();
+READ_BUFFER read_buff2();
+MASK_BUFFER mask_buff();
+WRITE_BACK accumulator();
+mem_control mv(
+	.iCLK(afi_clk),
+	.selector(select),
+	.to_ddr3(to_ddr3.TOP),
+	.rbi1(read_buff1.TOP),
+	.rbi2(read_buff2.TOP),
+	.mi(mask_buff.TOP),
+	.wi(accumulator.TOP)
 );
 
-	
+
+////////////////////////////////////////////
+// ALU unit
+ALU_I alu_i();
+ALU alu (
+	.iCLK(afi_clk),
+	.in_block1(read_buff1.BUFFER),
+	.in_block2(read_buff2.BUFFER),
+	.mask(mask_buff.BUFFER),
+	.out_block(accumulator.ALU),
+	.from_top(alu_i.TOP)
+);
 //////////////////////////////////////////////
 // nios control
 

@@ -39,12 +39,36 @@ module mem_control (
 	);
 
 /*
-	00 : read buffer 1 selected -- this one is the default read buffer
-	01 : read buffer 2 selected -- used when both buffers are needed
-	10 : mask buffer
-	11 : write back accumulator
+	000 : read buffer 1 selected -- this one is the default read buffer
+	001 : read buffer 2 selected -- used when both buffers are needed
+	010 : mask buffer
+	011 : write back accumulator
+	100 : basic read
+	101 : basic write
 */
 always_comb begin
+	to_ddr3.avl_burstbegin = 0;
+	to_ddr3.avl_address = 0;
+	to_ddr3.avl_writedata = 0;
+	to_ddr3.avl_write = 0;
+	to_ddr3.avl_read = 0;
+	rb1.local_init_done = 0;
+	rb1.avl_readdatavalid = 0;
+	rb1.avl_wait_request_n = 0;
+	rb1.avl_readdata = 0;
+	rb2.local_init_done = 0;
+	rb2.avl_readdatavalid = 0;
+	rb2.avl_wait_request_n = 0;
+	rb2.avl_readdata = 0;
+	mask.local_init_done = 0;
+	mask.avl_readdatavalid = 0;
+	mask.avl_wait_request_n = 0;
+	mask.avl_readdata = 0;
+	wba.local_init_done = 0;
+	wba.avl_readdatavalid = 0;
+	wba.avl_wait_request_n = 0;
+	wba.avl_readdata = 0;
+
 	case (selector)
 		2'b00 : begin
 			rb1.local_init_done = to_ddr3.local_init_done;
